@@ -17,6 +17,7 @@ const fetch = require("node-fetch");
 fetch('https://api.discogs.com/releases/249504').then((response) => {
   console.log(`Response status ${response.status}`);
   
+  // nota: la promesa con fetch va a resolver tambien con estatus 404 y 500
   // https://developer.mozilla.org/en-US/docs/Web/API/Response/json
   // return response.json(); // con este linea vamos a volver otro promesa 
                           // y podemos usar el otro then() abajo
@@ -57,7 +58,7 @@ const pidoHamburguesas = (cantidad) => {
     if (cantidad > limite) {
       reject("10 es nuestra limte! Menos por favor"); // rechazamos cuando piden mucho
     } else {
-      // estoy usando setTimeout aqui para demorar el codigo, simular asincronia
+      // estoy usando setTimeout aqui para demorar el codigo, simular asincronia https://www.w3schools.com/jsref/met_win_settimeout.asp
       setTimeout(() => {
         const arrHamb = [];
         for (let i = 0; i < cantidad; i++) {
